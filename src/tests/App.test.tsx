@@ -5,6 +5,6 @@ import App from '../App';
 describe('App', () => {
     it('renders the welcome message', () => {
         render(<App />);
-        expect(screen.getByText('Bienvenue sur le blog')).toBeInTheDocument();
+        expect(screen.getByText('DevBlog')).toBeInTheDocument();
     });
 });
