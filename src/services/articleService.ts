@@ -38,6 +38,20 @@ class ArticleService {
         });
     }
 
+    async searchArticles(query: string): Promise<Article[]> {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                const lowerQuery = query.toLowerCase();
+                const filtered = this.articles.filter((article) =>
+                    article.title.toLowerCase().includes(lowerQuery) ||
+                    article.content.toLowerCase().includes(lowerQuery) ||
+                    article.author.toLowerCase().includes(lowerQuery)
+                );
+                resolve(filtered);
+            }, 400);
+        });
+    }
+
     async createArticle(data: CreateArticleDTO): Promise<Article> {
         return new Promise((resolve) => {
             setTimeout(() => {

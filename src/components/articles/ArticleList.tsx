@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import type { Article } from '../../types/article';
 import { articleService } from '../../services/articleService';
 import { ArticleCard } from './ArticleCard';
+import { SearchBar } from './SearchBar';
 import './ArticleList.css';
 
 export const ArticleList: React.FC = () => {
@@ -9,35 +10,33 @@ export const ArticleList: React.FC = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
-    useEffect(() => {
-        const fetchArticles = async () => {
-            try {
-                const data = await articleService.getAllArticles();
-                setArticles(data);
-            } catch (err) {
-                setError('Failed to load articles. Please try again later.');
-                console.error(err);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchArticles();
-    }, []);
-
-    if (loading) {
-        return <div className="loading-state">Loading amazing content...</div>;
-    }
-
-    if (error) {
-        return <div className="error-state">{error}</div>;
-    }
+    const handleSearch = async (query: string) => {
+        setLoading(true);
+        setError(null);
+        try {
+            const data = query.trim()
+                ? await articleService.searchArticles(query)
+                : await articleService.getAllArticles();
+            setArticles(data);
+        } catch (err) {
+            setError('Failed to load articles. Please try again later.');
+            console.error(err);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     return (
         <div className="article-list-container">
             <h1 className="section-title">Latest Articles</h1>
-            {articles.length === 0 ? (
-                <div className="empty-state">No articles found. Be the first to write one!</div>
+            <SearchBar onSearch={handleSearch} />
+
+            {loading ? (
+                <div className="loading-state">Loading amazing content...</div>
+            ) : error ? (
+                <div className="error-state">{error}</div>
+            ) : articles.length === 0 ? (
+                <div className="empty-state">No articles found matching your search.</div>
             ) : (
                 <div className="article-grid">
                     {articles.map((article) => (

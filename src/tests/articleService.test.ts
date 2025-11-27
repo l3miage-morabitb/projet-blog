@@ -26,4 +26,13 @@ describe('ArticleService', () => {
         const allArticles = await articleService.getAllArticles();
         expect(allArticles).toContainEqual(createdArticle);
     });
+
+    it('should search articles', async () => {
+        const results = await articleService.searchArticles('Future');
+        expect(results.length).toBeGreaterThan(0);
+        expect(results[0].title).toContain('Future');
+
+        const noResults = await articleService.searchArticles('NonExistentTerm');
+        expect(noResults.length).toBe(0);
+    });
 });
