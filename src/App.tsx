@@ -31,7 +31,7 @@ function App() {
             style={{ margin: 0, background: 'linear-gradient(to right, #3b82f6, #8b5cf6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', cursor: 'pointer' }}
             onClick={() => navigate('/')}
           >
-            DevBlog
+            ESGI - The Blog
           </h1>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>

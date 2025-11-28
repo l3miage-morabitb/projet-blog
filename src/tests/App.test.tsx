@@ -13,6 +13,6 @@ describe('App', () => {
                 </MemoryRouter>
             </AuthProvider>
         );
-        expect(screen.getByText('DevBlog')).toBeInTheDocument();
+        expect(screen.getByText('ESGI - The Blog')).toBeInTheDocument();
     });
 });
