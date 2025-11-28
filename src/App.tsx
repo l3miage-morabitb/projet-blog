@@ -4,7 +4,6 @@ import { LoginModal } from './components/auth/LoginModal';
 import { useAuth } from './context/AuthContext';
 import { Home } from './pages/Home';
 import { ArticleDetails } from './pages/ArticleDetails';
-import './App.css';
 
 function App() {
   const [showForm, setShowForm] = useState(false);

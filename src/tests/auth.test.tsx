@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { MemoryRouter } from 'react-router-dom';
 import App from '../App';
 import { AuthProvider } from '../context/AuthContext';
 import { authService } from '../services/authService';
@@ -24,7 +25,9 @@ describe('Authentication Flow', () => {
     it('shows login button when not authenticated', () => {
         render(
             <AuthProvider>
-                <App />
+                <MemoryRouter>
+                    <App />
+                </MemoryRouter>
             </AuthProvider>
         );
         expect(screen.getByRole('button', { name: 'Login' })).toBeInTheDocument();
@@ -34,7 +37,9 @@ describe('Authentication Flow', () => {
     it('opens login modal when login button is clicked', () => {
         render(
             <AuthProvider>
-                <App />
+                <MemoryRouter>
+                    <App />
+                </MemoryRouter>
             </AuthProvider>
         );
         fireEvent.click(screen.getByRole('button', { name: 'Login' }));
@@ -47,7 +52,9 @@ describe('Authentication Flow', () => {
 
         render(
             <AuthProvider>
-                <App />
+                <MemoryRouter>
+                    <App />
+                </MemoryRouter>
             </AuthProvider>
         );
 
@@ -78,7 +85,9 @@ describe('Authentication Flow', () => {
 
         render(
             <AuthProvider>
-                <App />
+                <MemoryRouter>
+                    <App />
+                </MemoryRouter>
             </AuthProvider>
         );
 
@@ -98,7 +107,9 @@ describe('Authentication Flow', () => {
 
         render(
             <AuthProvider>
-                <App />
+                <MemoryRouter>
+                    <App />
+                </MemoryRouter>
             </AuthProvider>
         );
 

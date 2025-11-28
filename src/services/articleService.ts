@@ -10,7 +10,7 @@ const MOCK_ARTICLES: Article[] = [
         createdAt: new Date().toISOString(),
         likes: 12,
         likedBy: [],
-        commentsCount: 3,
+        commentsCount: 0,
     },
     {
         id: '2',
@@ -20,7 +20,7 @@ const MOCK_ARTICLES: Article[] = [
         createdAt: new Date(Date.now() - 86400000).toISOString(),
         likes: 45,
         likedBy: [],
-        commentsCount: 8,
+        commentsCount: 0,
     },
 ];
 
@@ -76,6 +76,7 @@ class ArticleService {
         });
     }
 
+    // Like un article
     async likeArticle(id: string, userId: string): Promise<Article | undefined> {
         console.log('Service: likeArticle called for id:', id, 'user:', userId);
         return new Promise((resolve) => {
@@ -115,6 +116,7 @@ class ArticleService {
         });
     }
 
+    // Récupère les commentaires d'un article
     async getComments(articleId: string): Promise<Comment[]> {
         return new Promise((resolve) => {
             setTimeout(() => {
@@ -125,6 +127,7 @@ class ArticleService {
         });
     }
 
+    // Ajoute un commentaire à un article
     async addComment(data: CreateCommentDTO): Promise<Comment> {
         return new Promise((resolve) => {
             setTimeout(() => {
