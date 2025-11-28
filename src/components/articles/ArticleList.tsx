@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import type { Article } from '../../types/article';
 import { articleService } from '../../services/articleService';
 import { ArticleCard } from './ArticleCard';
@@ -10,7 +10,7 @@ export const ArticleList: React.FC = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
-    const handleSearch = async (query: string) => {
+    const handleSearch = useCallback(async (query: string) => {
         setLoading(true);
         setError(null);
         try {
@@ -24,7 +24,7 @@ export const ArticleList: React.FC = () => {
         } finally {
             setLoading(false);
         }
-    };
+    }, []);
 
     return (
         <div className="article-list-container">

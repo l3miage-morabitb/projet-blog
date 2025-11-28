@@ -26,9 +26,9 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => {
                 </div>
             </header>
 
-
-
-
+            <div className="article-excerpt">
+                <p>{article.content.length > 150 ? `${article.content.substring(0, 150)}...` : article.content}</p>
+            </div>
 
             <footer className="article-footer">
                 <div className="article-stats">
