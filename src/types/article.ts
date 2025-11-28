@@ -11,7 +11,7 @@ export interface Article {
   title: string;
   content: string;
   author: string;
-  createdAt: string; // ISO date string
+  createdAt: string;
   likes: number;
   likedBy: string[]; // Array of user IDs who liked the article
   commentsCount: number;
