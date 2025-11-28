@@ -1,3 +1,11 @@
+export interface Comment {
+  id: string;
+  articleId: string;
+  author: string;
+  content: string;
+  createdAt: string;
+}
+
 export interface Article {
   id: string;
   title: string;
@@ -5,7 +13,9 @@ export interface Article {
   author: string;
   createdAt: string; // ISO date string
   likes: number;
+  likedBy: string[]; // Array of user IDs who liked the article
   commentsCount: number;
 }
 
-export type CreateArticleDTO = Omit<Article, 'id' | 'createdAt' | 'likes' | 'commentsCount'>;
+export type CreateArticleDTO = Omit<Article, 'id' | 'createdAt' | 'likes' | 'commentsCount' | 'likedBy'>;
+export type CreateCommentDTO = Omit<Comment, 'id' | 'createdAt'>;

@@ -69,4 +69,134 @@
     gap: 2rem;
     font-weight: 600;
     color: #4b5563;
+    align-items: center;
+}
+
+.like-btn {
+    background: transparent;
+    border: 2px solid #e5e7eb;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #4b5563;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.like-btn:hover {
+    border-color: #ef4444;
+    color: #ef4444;
+    background: #fef2f2;
+}
+
+.like-btn.liked {
+    border-color: #ef4444;
+    color: #ef4444;
+    background: #fef2f2;
+}
+
+.comments-section {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.comments-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: #111827;
+}
+
+.comment-form {
+    margin-bottom: 3rem;
+    background: #f9fafb;
+    padding: 1.5rem;
+    border-radius: 12px;
+}
+
+.comment-input {
+    width: 100%;
+    min-height: 100px;
+    padding: 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-family: inherit;
+    resize: vertical;
+}
+
+.comment-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px #93c5fd;
+}
+
+.submit-comment-btn {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.submit-comment-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.submit-comment-btn:hover:not(:disabled) {
+    background: #2563eb;
+}
+
+.login-prompt {
+    text-align: center;
+    padding: 2rem;
+    background: #f3f4f6;
+    border-radius: 8px;
+    color: #6b7280;
+    margin-bottom: 2rem;
+}
+
+.comment-card {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.comment-card:last-child {
+    border-bottom: none;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.comment-author {
+    font-weight: 600;
+    color: #111827;
+}
+
+.comment-date {
+    color: #9ca3af;
+    font-size: 0.875rem;
+}
+
+.comment-content {
+    color: #4b5563;
+    line-height: 1.6;
+}
+
+.no-comments {
+    text-align: center;
+    color: #9ca3af;
+    font-style: italic;
+    padding: 2rem;
 }
