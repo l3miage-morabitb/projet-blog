@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import type { Article } from '../../types/article';
 import './ArticleCard.css';
 
@@ -7,6 +8,8 @@ interface ArticleCardProps {
 }
 
 export const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => {
+    const navigate = useNavigate();
+
     return (
         <article className="article-card">
             <header>
@@ -35,7 +38,12 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => {
                     <span>❤️ {article.likes}</span>
                     <span>💬 {article.commentsCount}</span>
                 </div>
-                <button className="read-more-btn">Read Article</button>
+                <button
+                    className="read-more-btn"
+                    onClick={() => navigate(`/article/${article.id}`)}
+                >
+                    Read Article
+                </button>
             </footer>
         </article>
     );
