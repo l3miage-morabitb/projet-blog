@@ -1,6 +1,6 @@
 import type { Article, CreateArticleDTO } from '../types/article';
 
-// Mock data for initial testing
+// Mock des articles pour presentation
 const MOCK_ARTICLES: Article[] = [
     {
         id: '1',
@@ -16,28 +16,31 @@ const MOCK_ARTICLES: Article[] = [
         title: 'Alternance....',
         content: 'Recherche d’alternance : j’en ai MARRE. Vraiment.',
         author: 'Enis Mermer',
-        createdAt: new Date(Date.now() - 86400000).toISOString(), // 1 day ago
+        createdAt: new Date(Date.now() - 86400000).toISOString(),
         likes: 45,
         commentsCount: 8,
     },
 ];
 
+// Service pour gérer les articles
 class ArticleService {
     private articles: Article[] = [...MOCK_ARTICLES];
 
+    // Récupère tous les articles
     async getAllArticles(): Promise<Article[]> {
-        // Simulate network delay
         return new Promise((resolve) => {
             setTimeout(() => resolve([...this.articles]), 500);
         });
     }
 
+    // Récupère un article par son ID
     async getArticleById(id: string): Promise<Article | undefined> {
         return new Promise((resolve) => {
             setTimeout(() => resolve(this.articles.find((a) => a.id === id)), 300);
         });
     }
 
+    // Recherche des articles par titre, contenu ou auteur
     async searchArticles(query: string): Promise<Article[]> {
         return new Promise((resolve) => {
             setTimeout(() => {
@@ -52,6 +55,7 @@ class ArticleService {
         });
     }
 
+    // Créer un nouvel article
     async createArticle(data: CreateArticleDTO): Promise<Article> {
         return new Promise((resolve) => {
             setTimeout(() => {
@@ -69,4 +73,5 @@ class ArticleService {
     }
 }
 
+// Instance du service
 export const articleService = new ArticleService();

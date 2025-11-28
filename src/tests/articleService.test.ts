@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { articleService } from '../services/articleService';
 
+// Mock des articles pour presentation
 describe('ArticleService', () => {
     it('should fetch initial articles', async () => {
         const articles = await articleService.getAllArticles();
