@@ -4,7 +4,7 @@ import type { Article, CreateArticleDTO } from '../types/article';
 const MOCK_ARTICLES: Article[] = [
     {
         id: '1',
-        title: 'The Future of Web Development',
+        title: 'Le futur de la web',
         content: "La créativité gabonaise en action, même à Grenoble ! \nLe robot de Tristan : 100% fait maison, 100% talent, 100% inspiration",
         author: "Centre gabonais de l'innovation",
         createdAt: new Date().toISOString(),
