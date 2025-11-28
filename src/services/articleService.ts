@@ -5,17 +5,17 @@ const MOCK_ARTICLES: Article[] = [
     {
         id: '1',
         title: 'The Future of Web Development',
-        content: 'Full content about web development trends...',
-        author: 'Jane Doe',
+        content: "La créativité gabonaise en action, même à Grenoble ! \nLe robot de Tristan : 100% fait maison, 100% talent, 100% inspiration",
+        author: "Centre gabonais de l'innovation",
         createdAt: new Date().toISOString(),
         likes: 12,
         commentsCount: 3,
     },
     {
         id: '2',
-        title: 'Understanding TypeScript Generics',
-        content: 'Full content about generics...',
-        author: 'John Smith',
+        title: 'Alternance....',
+        content: 'Recherche d’alternance : j’en ai MARRE. Vraiment.',
+        author: 'Enis Mermer',
         createdAt: new Date(Date.now() - 86400000).toISOString(), // 1 day ago
         likes: 45,
         commentsCount: 8,
